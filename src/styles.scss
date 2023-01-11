@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  /*#8f57fd*/
+  --backgroundBody: linear-gradient(
+    to top,
+    rgba(64, 34, 24, 1) 0,
+    rgba(198, 139, 89, 1) 100%
+  );
+}
+
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  font-size: 18px;
+  font-family: "Roboto", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+.scrollbar-x {
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #865439;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:active {
+    background-color: #865439;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #865439;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Estilos track de scroll */
+  &::-webkit-scrollbar-track {
+    background: #402218;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-track:hover,
+  &::-webkit-scrollbar-track:active {
+    background: rgba(64, 34, 24, 0.3);
+  }
+}
