@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { YugiohCard } from 'src/app/Interfaces/card.model';
 
 @Component({
   selector: 'app-carousel',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./carousel.component.scss'],
 })
 export class CarouselComponent implements OnInit {
-  cardByDefault = {
+  cardByDefault: YugiohCard = {
     id: 46986421,
     name: 'Dark Magician',
     type: 'Normal Monster',
@@ -33,10 +34,11 @@ export class CarouselComponent implements OnInit {
   };
 
   @Input() title: string = '';
-  @Input() cards: any[] = [this.cardByDefault];
+  @Input() cards: YugiohCard[] = [this.cardByDefault];
 
   showItem: boolean = false;
   itemSelected: any = this.cardByDefault;
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -45,11 +47,15 @@ export class CarouselComponent implements OnInit {
    * Muestra/oculta los detalles del item y envia al componente hijo los datos del mismo
    * @param item carta para enviar
    */
-  toggleShowItem(item: any) {
+  toggleShowItem(item: YugiohCard) {
     this.showItem = !this.showItem;
     this.itemSelected = item;
   }
 
+  /**
+   * Recibe el estado del item del componente hijo y lo actualiza en el padre
+   * @param state estado del componente hijo
+   */
   showItemState(state: boolean) {
     this.showItem = state;
   }

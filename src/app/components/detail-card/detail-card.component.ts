@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { YugiohCard } from 'src/app/Interfaces/card.model';
 
 @Component({
   selector: 'detail-card',
@@ -6,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./detail-card.component.scss'],
 })
 export class DetailCardComponent implements OnInit {
-  @Input() cardDetail: any = {
+  @Input() cardDetail: YugiohCard = {
     id: 0,
     name: 'None',
     type: 'None',
