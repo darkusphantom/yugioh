@@ -34,7 +34,23 @@ export class CarouselComponent implements OnInit {
 
   @Input() title: string = '';
   @Input() cards: any[] = [this.cardByDefault];
+
+  showItem: boolean = false;
+  itemSelected: any = this.cardByDefault;
   constructor() {}
 
   ngOnInit(): void {}
+
+  /**
+   * Muestra/oculta los detalles del item y envia al componente hijo los datos del mismo
+   * @param item carta para enviar
+   */
+  toggleShowItem(item: any) {
+    this.showItem = !this.showItem;
+    this.itemSelected = item;
+  }
+
+  showItemState(state: boolean) {
+    this.showItem = state;
+  }
 }

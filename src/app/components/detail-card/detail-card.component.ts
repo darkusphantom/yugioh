@@ -1,15 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-detail-card',
+  selector: 'detail-card',
   templateUrl: './detail-card.component.html',
-  styleUrls: ['./detail-card.component.scss']
+  styleUrls: ['./detail-card.component.scss'],
 })
 export class DetailCardComponent implements OnInit {
+  @Input() cardDetail: any = {
+    id: 0,
+    name: 'None',
+    type: 'None',
+    frameType: 'None',
+    desc: 'None',
+    atk: 0,
+    def: 0,
+    level: 0,
+    race: 'None',
+    attribute: 'None',
+    archetype: 'None',
+    card_sets: [],
+    card_images: [
+      {
+        id: 0,
+        image_url: '',
+        image_url_small: '',
+        image_url_cropped: '',
+      },
+    ],
+    card_prices: [],
+  };
+  @Input() showCardDetail: boolean = false;
+  @Output() showCard = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  toggleCardDetail() {
+    this.showCardDetail = !this.showCardDetail;
+    this.showCard.emit(this.showCardDetail);
   }
-
 }
