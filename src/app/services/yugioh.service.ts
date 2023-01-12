@@ -56,11 +56,27 @@ export class YugiohService {
 
   /**
    * Obtiene una carta especifica por el tipo
+   * @param type tipo de la carta (normal monster, effect monster, spell card, trap card...)
+   * @returns la carta que coincida con el tipo
+   */
+  getCardByType(type: string | null) {
+    const getSpecifficType = () => {
+      const isSpellOrTrap = type === 'spell' || type === 'trap';
+      if (isSpellOrTrap) return `${type} card`;
+      if (!isSpellOrTrap) return `${type} monster`;
+      return type;
+    };
+    const typeCard = getSpecifficType();
+    return this.http.get(`${this.URL_API}/?type=${typeCard}`);
+  }
+
+  /**
+   * Obtiene una carta especifica por el tipo
    * @param type tipo de la carta (normal, effect, spell, trap...)
    * @returns la carta que coincida con el tipo
    */
-  getCardByType(type: string) {
-    return this.http.get(`${this.URL_API}/?type=${type}%20card`);
+  getCardByFrameType(type: string) {
+    return this.http.get(`${this.URL_API}/?frametype=${type}`);
   }
 
   /**

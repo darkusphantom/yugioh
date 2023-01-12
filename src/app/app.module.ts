@@ -13,7 +13,8 @@ import { CardComponent } from './components/card/card.component';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { FooterPageComponent } from './components/footer-page/footer-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { DeckComponent } from './pages/deck/deck.component';
+import { TypeCardComponent } from './pages/type-card/type-card.component';
+import { DetailCardComponent } from './components/detail-card/detail-card.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DeckComponent } from './pages/deck/deck.component';
     HeaderPageComponent,
     FooterPageComponent,
     CarouselComponent,
-    DeckComponent,
+    TypeCardComponent,
+    DetailCardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
