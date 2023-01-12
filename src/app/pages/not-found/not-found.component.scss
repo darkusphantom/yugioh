@@ -1,0 +1,23 @@
+.error {
+  background: var(--backgroundBody);
+  min-height: calc(100vh - 220px);
+  position: relative;
+}
+
+.container-error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+
+  img {
+    width: 80%;
+  }
+}
+
+.error-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
