@@ -2,7 +2,7 @@
   overflow-x: scroll;
   overflow-y: hidden;
   padding-left: 30px;
-  width: 100%;
+  // width: 100%;
   position: relative;
 }
 
@@ -27,6 +27,10 @@
     }
   }
 }
+
+// .carousel--title {
+// color: var(--text-color);
+// }
 
 .carousel-item {
   border-radius: 20px;
@@ -80,6 +84,10 @@
 .carousel-item__details--img {
   width: 20px;
   cursor: pointer;
+
+  &:last-child {
+    transform: rotate(90deg);
+  }
 }
 
 .carousel-item:hover .carousel-item__details {
@@ -87,12 +95,12 @@
 }
 
 .carousel-item__details--title {
-  color: white;
+  color: var(--text-color);
   margin: 5px 0px 0px 0px;
 }
 
 .carousel-item__details--subtitle {
-  color: white;
+  color: var(--text-color);
   font-size: 8px;
   margin: 3px 0px;
 }

@@ -6,6 +6,18 @@
     rgba(64, 34, 24, 1) 0,
     rgba(198, 139, 89, 1) 100%
   );
+
+  --header-height: 52px;
+  --header-padding-y: 12px;
+  --footer-height: 100px;
+  --min-body-height: var(--header-height) + var(--header-padding-y) +
+    var(--footer-height);
+
+  --color-white: #fff;
+  --color-black: #000;
+
+  --text-color: var(--color-white);
+  --text-color-nav: var(--color-black);
 }
 
 :host {

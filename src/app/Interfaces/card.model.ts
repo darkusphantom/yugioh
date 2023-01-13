@@ -1,4 +1,8 @@
-export interface YugiohCard {
+interface YugiohCardData {
+  data: YugiohCard[];
+}
+
+interface YugiohCard {
   id: Number;
   name: String;
   type: String;
@@ -37,3 +41,5 @@ interface CardSets {
   set_rarity: String;
   set_rarity_code: String;
 }
+
+export { YugiohCardData, YugiohCard };

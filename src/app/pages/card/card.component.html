@@ -1,0 +1,35 @@
+<header-page></header-page>
+<div class="detail-card">
+  <div class="detail-card-container">
+    <div class="detail-card-title">
+      <h3 class="detail-name">{{ card.name }}</h3>
+      <p class="detail-race">{{ card.race }}</p>
+    </div>
+    <div class="detail-card-image">
+      <div class="image-notfound" *ngIf="!card.card_images.length">
+        <h2>Card Not Found</h2>
+      </div>
+      <img
+        [src]="card.card_images.length ? card.card_images[0].image_url : ''"
+        alt="card.name"
+        width="250"
+        height="370"
+        *ngIf="card.card_images.length"
+      />
+    </div>
+    <div class="detail-card-description">
+      <p class="detail-description">
+        <span>Description:</span> {{ card.desc }}
+      </p>
+      <p class="detail-atk"><span>Atk:</span> {{ card.atk }}</p>
+      <p class="detail-def"><span>Def:</span> {{ card.def }}</p>
+      <p class="detail-lvl"><span>Level:</span> {{ card.level }}</p>
+      <p class="detail-type"><span>Type:</span> {{ card.type }}</p>
+      <p class="detail-attribute"><span>Attribute:</span> {{ card.attribute }}</p>
+      <p class="detail-archetype">
+        <span>Archetype:</span> {{ card.archetype }}
+      </p>
+    </div>
+  </div>
+</div>
+<footer-page></footer-page>

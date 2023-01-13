@@ -10,7 +10,7 @@
     </div>
     <div class="detail-card-image">
       <img
-        [src]="cardDetail.card_images[0].image_url"
+        [src]="cardDetail.card_images[0].image_url || ''"
         alt="cardDetail.name"
         width="250"
         height="370"

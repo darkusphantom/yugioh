@@ -20,14 +20,7 @@ export class DetailCardComponent implements OnInit {
     attribute: 'None',
     archetype: 'None',
     card_sets: [],
-    card_images: [
-      {
-        id: 0,
-        image_url: '',
-        image_url_small: '',
-        image_url_cropped: '',
-      },
-    ],
+    card_images: [],
     card_prices: [],
   };
   @Input() showCardDetail: boolean = false;
