@@ -1,0 +1,16 @@
+<nav class="navbar" [class.active]="isShowMenu">
+  <a class="item" routerLink="/home" routerLinkActive="active">Home</a>
+  <a class="item" routerLink="/register" routerLinkActive="active">Register</a>
+  <a class="item" routerLink="/login" routerLinkActive="active">Login</a>
+  <button
+    type="button"
+    class="btn-close"
+    *ngIf="isShowMenu"
+    (click)="toggleShowMenu()"
+  >
+    X
+  </button>
+</nav>
+<div class="menu-burger" (click)="toggleShowMenu()">
+  <span></span><span></span><span></span>
+</div>

@@ -15,6 +15,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { TypeCardComponent } from './pages/type-card/type-card.component';
 import { DetailCardComponent } from './components/detail-card/detail-card.component';
 import { CardComponent } from './pages/card/card.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CardComponent } from './pages/card/card.component';
     TypeCardComponent,
     DetailCardComponent,
     CardComponent,
+    NavbarComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

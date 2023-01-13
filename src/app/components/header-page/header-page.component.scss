@@ -12,26 +12,3 @@
   font-weight: 700;
   text-transform: uppercase;
 }
-
-.navbar {
-  width: 50%;
-  max-width: 300px;
-  display: flex;
-  justify-content: space-evenly;
-
-  a.item {
-    text-decoration: none;
-    color: var(--text-color-nav);
-  }
-
-  .item {
-    padding: 6px 12px;
-    &:hover {
-      border-radius: 6px;
-      color: var(--text-color);
-      background: #000;
-      cursor: pointer;
-      transition: background 0.25s ease-in;
-    }
-  }
-}
