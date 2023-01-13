@@ -1,0 +1,17 @@
+<nav class="navbar" [class.active]="isShowMenu">
+  <a class="item" routerLink="/yugioh" routerLinkActive="active">Home</a>
+  <a class="item" routerLink="/yugioh/type-card/spell" routerLinkActive="active">TypeCard</a>
+  <a class="item" routerLink="/yugioh/card/dark magician" routerLinkActive="active">Card</a>
+  <a class="item" routerLink="/pokemon" routerLinkActive="active">Pokemon</a>
+  <button
+    type="button"
+    class="btn-close"
+    *ngIf="isShowMenu"
+    (click)="toggleShowMenu()"
+  >
+    X
+  </button>
+</nav>
+<div class="menu-burger" (click)="toggleShowMenu()">
+  <span></span><span></span><span></span>
+</div>

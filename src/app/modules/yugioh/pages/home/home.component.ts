@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { YugiohService } from 'src/app/services/yugioh.service';
+import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
 
 @Component({
   selector: 'app-home',

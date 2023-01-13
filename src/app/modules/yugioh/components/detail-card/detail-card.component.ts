@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { YugiohCard } from 'src/app/models/card.model';
+import { YugiohCard } from 'src/app/modules/yugioh/models/card.model';
 
 @Component({
   selector: 'detail-card',

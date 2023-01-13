@@ -1,44 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './website/pages/home/home.component';
-import { NotFoundComponent } from './website/pages/not-found/not-found.component';
-import { LoginComponent } from './website/pages/login/login.component';
-import { RegisterComponent } from './website/pages/register/register.component';
-import { TypeCardComponent } from './website/pages/type-card/type-card.component';
-import { CardComponent } from './website/pages/card/card.component';
-import { LayoutComponent } from './website/components/layout/layout.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full',
-      },
-      {
-        path: 'home',
-        component: HomeComponent,
-      },
-      {
-        path: 'type-card/:type',
-        component: TypeCardComponent,
-      },
-      {
-        path: 'card/:name',
-        component: CardComponent,
-      },
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
-      {
-        path: 'register',
-        component: RegisterComponent,
-      },
-    ],
+    loadChildren: () => import('./modules/yugioh/yugioh.module').then(m => m.YugiohModule)
+  },
+  {
+    path: 'pokemon',
+    loadChildren: () => import('./modules/pokemon/pokemon.module').then(m => m.PokemonModule)
   },
   {
     path: '**',

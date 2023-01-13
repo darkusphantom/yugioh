@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { YugiohCard } from 'src/app/models/card.model';
-import { YugiohService } from 'src/app/services/yugioh.service';
+import { YugiohCard } from 'src/app/modules/yugioh/models/card.model';
+import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
 
 @Component({
   selector: 'app-card',
