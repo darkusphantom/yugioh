@@ -5,11 +5,18 @@ import { NotFoundComponent } from './not-found/not-found.component';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/yugioh/yugioh.module').then(m => m.YugiohModule)
+    redirectTo: '/yugioh',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./modules/yugioh/yugioh.module').then((m) => m.YugiohModule),
   },
   {
     path: 'pokemon',
-    loadChildren: () => import('./modules/pokemon/pokemon.module').then(m => m.PokemonModule)
+    loadChildren: () =>
+      import('./modules/pokemon/pokemon.module').then((m) => m.PokemonModule),
   },
   {
     path: '**',
