@@ -1,0 +1,30 @@
+.form {
+  width: 100%;
+  max-width: 270px;
+  padding: 10px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  input {
+    appearance: none;
+    border: none;
+    border-bottom: 1px solid;
+    width: 80%;
+    margin: 0 auto;
+    transition: width 0.25s ease-out;
+
+    &:focus {
+      width: 100%;
+      transition: width 0.25s ease-in;
+    }
+  }
+}

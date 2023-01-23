@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/yugioh',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '',
@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'pokemon',
     loadChildren: () =>
       import('./modules/pokemon/pokemon.module').then((m) => m.PokemonModule),
+  },
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: '**',
