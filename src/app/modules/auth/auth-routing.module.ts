@@ -6,6 +6,15 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/auth/login',
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: HomeComponent,
+  },
+  {
+    path: 'register',
     component: HomeComponent,
   },
 ];
