@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
+import { AuthState } from 'src/app/core/models/auth.model';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,25 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  isLogin: boolean = true;
+  authState: AuthState = {
+    register: false,
+    login: true,
+    verify: false,
+    checkCode: false,
+  };
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.route.url.subscribe((url) => {
-      url[0].path === 'login' ? (this.isLogin = true) : (this.isLogin = false);
+    this.route.url.subscribe((url: UrlSegment[]) => {
+      const path = url[0].path;
+      if (path === 'register') {
+        this.authState = {
+          ...this.authState,
+          login: false,
+          register: true,
+        };
+      }
     });
   }
 }
