@@ -11,6 +11,7 @@ import { DetailCardComponent } from './components/detail-card/detail-card.compon
 import { CardComponent } from './pages/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,6 @@ import { LayoutComponent } from './components/layout/layout.component';
     NavbarComponent,
     LayoutComponent,
   ],
-  imports: [CommonModule, YugiohRoutingModule],
+  imports: [CommonModule, YugiohRoutingModule, MatButtonModule],
 })
 export class YugiohModule {}

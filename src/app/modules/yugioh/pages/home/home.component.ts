@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
 
   /**
    * Obtiene todas las cartas filtradas por unas palabras especificas en el nombre de la carta
+   *
    * @param words palabras que debe contener el nombre de la carta
    * @returns un arreglo con todas las cartas que contenga las palabras especccificadas
    */
@@ -41,6 +42,7 @@ export class HomeComponent implements OnInit {
 
   /**
    * Obtiene las cartas por fuzzy dizze
+   *
    * @param fname nombre por fuzzy dizze
    */
   getCardsByFname(fname: string) {
