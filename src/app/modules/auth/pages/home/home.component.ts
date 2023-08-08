@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
     checkCode: false,
   };
 
+  isLogin = false;
+
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
