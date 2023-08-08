@@ -12,6 +12,7 @@ export class YugiohService {
 
   /**
    * Obtiene todas las cartas
+   *
    * @returns todas las cartas
    */
   getAllCards() {
@@ -20,6 +21,7 @@ export class YugiohService {
 
   /**
    * Obtiene una carta especifica por id
+   *
    * @param id ID o passcode de la carta
    * @returns la carta que coincida con el ID o passcode
    */
@@ -29,6 +31,7 @@ export class YugiohService {
 
   /**
    * Obtiene una carta especifica por el nombre
+   *
    * @param name Nombre de la carta
    * @returns la carta que coincida con el nombre
    */
@@ -47,6 +50,7 @@ export class YugiohService {
 
   /**
    * Obtiene una carta especifica por el atributo
+   *
    * @param attribute atributo de la carta
    * @returns la carta que coincida con el atributo
    */
@@ -56,22 +60,24 @@ export class YugiohService {
 
   /**
    * Obtiene una carta especifica por el tipo
+   *
    * @param type tipo de la carta (normal monster, effect monster, spell card, trap card...)
    * @returns la carta que coincida con el tipo
    */
   getCardByType(type: string | null) {
-    const getSpecifficType = () => {
-      const isSpellOrTrap = type === 'spell' || type === 'trap';
-      if (isSpellOrTrap) return `${type} card`;
-      if (!isSpellOrTrap) return `${type} monster`;
-      return type;
-    };
-    const typeCard = getSpecifficType();
-    return this.http.get(`${this.URL_API}/?type=${typeCard}`);
+    // const getSpecifficType = () => {
+    //   const isSpellOrTrap = type === 'spell' || type === 'trap';
+    //   if (isSpellOrTrap) return `${type} card`;
+    //   if (!isSpellOrTrap) return `${type} monster`;
+    //   return type;
+    // };
+    // const typeCard = getSpecifficType();
+    return this.http.get(`${this.URL_API}/?type=${type}`);
   }
 
   /**
    * Obtiene una carta especifica por el tipo
+   *
    * @param type tipo de la carta (normal, effect, spell, trap...)
    * @returns la carta que coincida con el tipo
    */
@@ -81,6 +87,7 @@ export class YugiohService {
 
   /**
    * Obtiene una carta especifica por el tipo y la raza
+   *
    * @param type tipo de la carta (normal, effect, spell, trap,...)
    * @param race raza de la carta (spellcaster, warrior, insect...)
    * @returns la carta que coincida con el tipo y la raza
@@ -91,6 +98,7 @@ export class YugiohService {
 
   /**
    * Obtiene una carta especifica por el atributo, el nivel y el orden
+   *
    * @param level nivel o rango de la carta (1,2,...,12)
    * @param attribute atributo de la carta (water, fire, dark,...)
    * @param sort el orden para organizar las cartas (atk, def)

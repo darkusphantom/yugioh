@@ -8,12 +8,21 @@ import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
 })
 export class HomeComponent implements OnInit {
   allCards: any[] = [];
+  cardsData: any[] = [];
   filteredCards: any[] = [];
+  normalMonsterCards: any[] = [];
+  effectMonsterCards: any[] = [];
+  spellCards: any[] = [];
+  trapCards: any[] = [];
 
   constructor(private yugiohService: YugiohService) {}
 
   ngOnInit(): void {
     this.getCardsByFname('magician');
+    this.getNormalMonsterCards('normal monster');
+    this.getEffectMonsterCards('effect monster');
+    this.getSpellCards('spell card');
+    this.getTrapCards('trap card');
   }
 
   /**
@@ -41,14 +50,38 @@ export class HomeComponent implements OnInit {
   }
 
   /**
-   * Obtiene las cartas por fuzzy dizze
+   * Obtiene las cartas por fuzzy dizzy
    *
-   * @param fname nombre por fuzzy dizze
+   * @param fname nombre por fuzzy dizzy
    */
   getCardsByFname(fname: string) {
     this.yugiohService.getCardByFName(fname).subscribe((res: any) => {
       this.allCards = res.data;
       this.filteredCards = this.getCardsByFilterName('Dark Magician');
+    });
+  }
+
+  getNormalMonsterCards(type: string) {
+    this.yugiohService.getCardByType(type).subscribe((cards: any) => {
+      this.normalMonsterCards = cards.data.splice(0, 12);
+    });
+  }
+
+  getEffectMonsterCards(type: string) {
+    this.yugiohService.getCardByType(type).subscribe((cards: any) => {
+      this.effectMonsterCards = cards.data.splice(0, 12);
+    });
+  }
+
+  getSpellCards(type: string) {
+    this.yugiohService.getCardByType(type).subscribe((cards: any) => {
+      this.spellCards = cards.data.splice(0, 12);
+    });
+  }
+
+  getTrapCards(type: string) {
+    this.yugiohService.getCardByType(type).subscribe((cards: any) => {
+      this.trapCards = cards.data.splice(0, 12);
     });
   }
 }

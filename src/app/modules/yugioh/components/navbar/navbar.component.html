@@ -1,8 +1,80 @@
 <nav class="navbar" [class.active]="isShowMenu">
   <a class="item" routerLink="/yugioh" routerLinkActive="active">Home</a>
-  <a class="item" routerLink="/yugioh/type-card/spell" routerLinkActive="active">TypeCard</a>
+  <div class="menu">
+    <button mat-button [matMenuTriggerFor]="menu">Categorias</button>
+    <mat-menu #menu="matMenu">
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/normal monster"
+        routerLinkActive="active"
+        >Normal Monster</a
+      >
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/effect monster"
+        routerLinkActive="active"
+        >Effect Monster</a
+      >
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/spell card"
+        routerLinkActive="active"
+        >Spell Cards</a
+      >
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/trap card"
+        routerLinkActive="active"
+        >Trap Cards</a
+      >
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/fusion monster"
+        routerLinkActive="active"
+      >
+        Fusion Monster
+      </a>
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/ritual monster"
+        routerLinkActive="active"
+      >
+        Ritual Monster
+      </a>
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/synchro monster"
+        routerLinkActive="active"
+      >
+        Synchro Monster
+      </a>
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/xyz monster"
+        routerLinkActive="active"
+        >XYZ Monster</a
+      >
+      <a
+        class="item"
+        mat-menu-item
+        routerLink="/yugioh/type-card/link monster"
+        routerLinkActive="active"
+      >
+        Link Monster
+      </a>
+    </mat-menu>
+  </div>
+  <!-- <a class="item" routerLink="/yugioh/type-card/spell" routerLinkActive="active">TypeCard</a>
   <a class="item" routerLink="/yugioh/card/dark magician" routerLinkActive="active">Card</a>
-  <a class="item" routerLink="/pokemon" routerLinkActive="active">Pokemon</a>
+  <a class="item" routerLink="/pokemon" routerLinkActive="active">Pokemon</a> -->
   <button
     type="button"
     class="btn-close"
