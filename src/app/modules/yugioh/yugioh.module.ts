@@ -14,6 +14,8 @@ import { LayoutComponent } from './components/layout/layout.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,13 @@ import { MatMenuModule } from '@angular/material/menu';
     NavbarComponent,
     LayoutComponent,
   ],
-  imports: [CommonModule, YugiohRoutingModule, MatButtonModule, MatMenuModule],
+  imports: [
+    CommonModule,
+    YugiohRoutingModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatSidenavModule,
+  ],
 })
 export class YugiohModule {}
