@@ -1,3 +1,46 @@
-<header-page></header-page>
-<router-outlet></router-outlet>
-<footer-page></footer-page>
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="app-name">
+      <a routerLink="/yugioh"> Yu Gi Oh! </a>
+    </h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container
+    class="sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0"
+  >
+    <mat-sidenav
+      #snav
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56"
+    >
+      <mat-nav-list>
+        <!-- <a mat-list-item [routerLink]="nav.url" *ngFor="let nav of fillerNav">
+          {{ nav.name }}
+        </a> -->
+        <div class="menu" mat-list-item>
+          <button mat-button [matMenuTriggerFor]="menu">Categories</button>
+          <mat-menu #menu="matMenu">
+            <a
+              class="item"
+              mat-menu-item
+              *ngFor="let item of fillerNav"
+              [routerLink]="item.url"
+            >
+              {{ item.name }}
+            </a>
+          </mat-menu>
+        </div>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+      <footer-page></footer-page>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
