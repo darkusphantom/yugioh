@@ -34,6 +34,7 @@ export class CarouselComponent implements OnInit {
   };
 
   @Input() title: string = '';
+  @Input() description: string = '';
   @Input() cards: YugiohCard[] = [this.cardByDefault];
 
   showItem: boolean = false;

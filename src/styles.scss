@@ -57,6 +57,10 @@ p {
 .scrollbar-x {
   &::-webkit-scrollbar {
     height: 8px;
+    @media (max-width: 1023px) {
+      height: 0;
+      opacity: 0;
+    }
   }
 
   &::-webkit-scrollbar-thumb {

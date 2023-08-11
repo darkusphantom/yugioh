@@ -1,5 +1,6 @@
 <section class="carousel scrollbar-x">
   <h2 class="carousel--title" *ngIf="title.length">{{ title }}</h2>
+  <p class="carousel--description" *ngIf="description.length">{{ description }}</p>
   <div class="carousel__container">
     <div class="carousel-item" *ngFor="let item of cards">
       <img
