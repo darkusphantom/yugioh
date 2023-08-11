@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { YugiohCard } from 'src/app/modules/yugioh/models/card.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { YugiohCard } from 'src/app/modules/yugioh/models/card.model';
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
 })
-export class CarouselComponent implements OnInit {
+export class CarouselComponent implements OnChanges {
   cardByDefault: YugiohCard = {
     id: 46986421,
     name: 'Dark Magician',
@@ -35,14 +35,19 @@ export class CarouselComponent implements OnInit {
 
   @Input() title: string = '';
   @Input() description: string = '';
-  @Input() cards: YugiohCard[] = [this.cardByDefault];
+  @Input() cards: YugiohCard[] = [];
 
   showItem: boolean = false;
-  itemSelected: any = this.cardByDefault;
+  isCardsLoaded: boolean = true;
+  itemSelected: YugiohCard = this.cardByDefault;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnChanges(changes: SimpleChanges): void {
+    // if (changes['cards'].currentValue && this.cards.length) {
+    //   this.isCardsLoaded = true;
+    // }
+  }
 
   /**
    * Muestra/oculta los detalles del item y envia al componente hijo los datos del mismo

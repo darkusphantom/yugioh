@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
 import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
+import { YugiohCard } from '../../models/card.model';
+import { Carousel } from '../../models/carousel.model';
 
 @Component({
   selector: 'app-home',
@@ -8,25 +10,30 @@ import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  allCards: any[] = [];
-  darkMagicianCards: any[] = [];
-  cardsData: any[] = [];
-  filteredCards: any[] = [];
-  normalMonsterCards: any[] = [];
-  effectMonsterCards: any[] = [];
-  spellCards: any[] = [];
-  trapCards: any[] = [];
+  allCards: YugiohCard[] = [];
+  darkMagicianCards: YugiohCard[] = [];
+  normalMonsterCards: YugiohCard[] = [];
+  effectMonsterCards: YugiohCard[] = [];
+  spellCards: YugiohCard[] = [];
+  trapCards: YugiohCard[] = [];
 
-  carouselData: any[] = [
+  carouselData: Carousel[] = [
     {
-      title: 'Normal Monster Cards',
+      title: 'Dark Magicians',
+      description:
+        'Dark Magician, known as "Black Magician" is an archetype that has been a part of the Yu-Gi-Oh! franchise since its beginning, with "Dark Magician" appearing as Yugi Muto\'s ace card.',
+      cards: [],
+      url: '',
+    },
+    {
+      title: 'Normal Monster',
       description:
         'Normal Monsters, colored yellow, are Main Deck monsters with no monster effects.',
       cards: [],
       url: '/yugioh/type-card/normal monster',
     },
     {
-      title: 'Effect Monster Cards',
+      title: 'Effect Monster',
       description:
         'Effect Monster are Monster Cards with an orange color border. Effect Monsters necessarily have at least one card effect or condition.',
       cards: [],
@@ -48,30 +55,31 @@ export class HomeComponent implements OnInit {
     },
   ];
 
-  typeCards = ['normal monster', 'effect monster', 'spell card', 'trap card'];
-
   constructor(private yugiohService: YugiohService) {}
 
   ngOnInit(): void {
     this.getAllCards();
-    const darkMagician = this.allCards.filter(card => card.n)
-    // this.getCardsFilteredName('Dark Magician');
-    // this.getCardsByFname('magician');
-    // this.getNormalMonsterCards('normal monster');
-    // this.getEffectMonsterCards('effect monster');
-    // this.getSpellCards('spell card');
-    // this.getTrapCards('trap card');
-    // setTimeout(() => {
-    //   this.allCards = [
-    //     this.normalMonsterCards,
-    //     this.effectMonsterCards,
-    //     this.spellCards,
-    //     this.trapCards,
-    //   ];
-    //   this.carouselData = this.carouselData.map((carousel, i) => {
-    //     return { ...carousel, cards: this.allCards[i] };
-    //   });
-    // }, 1000);
+    setTimeout(() => {
+      this.darkMagicianCards = this.getCardsByFilterName(
+        'Dark Magician',
+        this.allCards
+      );
+      this.normalMonsterCards = this.getCardsByTypeFiltered('normal', 12);
+      this.effectMonsterCards = this.getCardsByTypeFiltered('effect', 12);
+      this.spellCards = this.getCardsByTypeFiltered('spell', 12);
+      this.trapCards = this.getCardsByTypeFiltered('trap', 12);
+
+      const allTypeCards = [
+        this.darkMagicianCards,
+        this.normalMonsterCards,
+        this.effectMonsterCards,
+        this.spellCards,
+        this.trapCards,
+      ];
+      this.carouselData = this.carouselData.map((carousel, i) => {
+        return { ...carousel, cards: allTypeCards[i] };
+      });
+    }, 2500);
   }
 
   /**
@@ -80,7 +88,7 @@ export class HomeComponent implements OnInit {
    * @param words palabras que debe contener el nombre de la carta
    * @returns un arreglo con todas las cartas que contenga las palabras especccificadas
    */
-  getCardsByFilterName(words: string, cards?: any) {
+  getCardsByFilterName(words: string, cards?: any): YugiohCard[] {
     const filteredCards = cards
       .map((card: any) => {
         if (card.name.includes(words)) return card;
@@ -92,63 +100,33 @@ export class HomeComponent implements OnInit {
   /**
    * Obtiene todas las cartas de la API
    */
-  getAllCards() {
+  getAllCards(): void {
     this.yugiohService.getAllCards().subscribe((res: any) => {
       this.allCards = res.data;
-      console.log(this.allCards);
     });
-  }
-
-  getCardsFilteredName(fname: string) {
-    this.darkMagicianCards = this.getCardsByFilterName(fname, this.allCards);
-    console.log(this.darkMagicianCards);
   }
 
   /**
-   * Obtiene las cartas por fuzzy dizzy
+   * Get cards by frametype
    *
-   * @param fname nombre por fuzzy dizzy
+   * @param type
+   * @param limit
+   * @returns an array of
    */
-  getCardsByFname(fname: string) {
-    this.yugiohService.getCardByFName(fname).subscribe((res: any) => {
-      const cards = res.data;
-      this.filteredCards = this.getCardsByFilterName('Dark Magician', cards);
-    });
+  getCardsByTypeFiltered(type: string, limit?: number): YugiohCard[] {
+    return !limit
+      ? this.allCards.filter((card) => card.frameType === type)
+      : this.allCards
+          .filter((card) => card.frameType === type)
+          .splice(0, limit);
   }
 
-  getNormalMonsterCards(type: string) {
+  getNormalMonsterCards(type: string): void {
     this.yugiohService
       .getCardByType(type)
       .pipe(debounceTime(200))
       .subscribe((cards: any) => {
         this.normalMonsterCards = cards.data.splice(0, 12);
-      });
-  }
-
-  getEffectMonsterCards(type: string) {
-    this.yugiohService
-      .getCardByType(type)
-      .pipe(debounceTime(200))
-      .subscribe((cards: any) => {
-        this.effectMonsterCards = cards.data.splice(0, 12);
-      });
-  }
-
-  getSpellCards(type: string) {
-    this.yugiohService
-      .getCardByType(type)
-      .pipe(debounceTime(200))
-      .subscribe((cards: any) => {
-        this.spellCards = cards.data.splice(0, 12);
-      });
-  }
-
-  getTrapCards(type: string) {
-    this.yugiohService
-      .getCardByType(type)
-      .pipe(debounceTime(200))
-      .subscribe((cards: any) => {
-        this.trapCards = cards.data.splice(0, 12);
       });
   }
 }

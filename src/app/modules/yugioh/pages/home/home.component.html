@@ -1,26 +1,19 @@
 <div class="home">
-  <section class="cards-carousel">
-    <app-carousel
-      [title]="'Dark Magicians'"
-      [cards]="filteredCards"
-    ></app-carousel>
-    <button type="button" mat-raised-button color="primary">
-      <a
-        routerLink="/yugioh/type-card/normal monster"
-        routerLinkActive="active"
+  <div class="container">
+    <section class="cards-carousel" *ngFor="let carousel of carouselData">
+      <app-carousel
+        [title]="carousel.title"
+        [cards]="carousel.cards"
+        [description]="carousel.description"
+      ></app-carousel>
+      <button
+        *ngIf="carousel.url"
+        type="button"
+        mat-raised-button
+        color="primary"
       >
-        See more
-      </a>
-    </button>
-  </section>
-  <section class="cards-carousel" *ngFor="let carousel of carouselData">
-    <app-carousel
-      [title]="carousel.title"
-      [cards]="carousel.cards"
-      [description]="carousel.description"
-    ></app-carousel>
-    <button type="button" mat-raised-button color="primary">
-      <a [routerLink]="carousel.url"> See more </a>
-    </button>
-  </section>
+        <a [routerLink]="carousel.url"> See more </a>
+      </button>
+    </section>
+  </div>
 </div>

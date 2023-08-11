@@ -1,8 +1,8 @@
 <div class="overlay" *ngIf="showCardDetail" (click)="toggleCardDetail()"></div>
 <div class="detail-card" [class.active]="showCardDetail">
   <div class="detail-card-container">
-    <button type="button" class="detail-btn" (click)="toggleCardDetail()">
-      Close
+    <button type="button" class="btn detail-btn" (click)="toggleCardDetail()">
+      <mat-icon aria-hidden="false" aria-label="Close button">close</mat-icon>
     </button>
     <div class="detail-card-title">
       <h3 class="detail-name">{{ cardDetail.name }}</h3>
@@ -20,9 +20,11 @@
       <p class="detail-description">
         <span>Description:</span> {{ cardDetail.desc }}
       </p>
-      <p class="detail-lvl"><span>Level:</span> {{ cardDetail.level }}</p>
+      <p class="detail-lvl" *ngIf="cardDetail.level">
+        <span>Level:</span> {{ cardDetail.level }}
+      </p>
       <p class="detail-type"><span>Type:</span> {{ cardDetail.type }}</p>
-      <p class="detail-archetype">
+      <p class="detail-archetype" *ngIf="cardDetail.archetype">
         <span>Archetype:</span> {{ cardDetail.archetype }}
       </p>
     </div>

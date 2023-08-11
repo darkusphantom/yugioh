@@ -1,16 +1,24 @@
 .home {
   min-height: calc(100vh - var(--min-body-height));
   background: var(--backgroundBody) no-repeat;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  padding-bottom: 21px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    width: 95%;
+    padding: 24px 0;
+    margin: 0 auto;
+  }
 }
 
 .cards-carousel {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background: rgb(64 34 24 / 46%);
+  padding: 20px 14px;
+  border-radius: 4px;
   button {
     max-width: 100px;
     margin-left: 30px;
