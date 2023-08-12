@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { YugiohCard } from '../models/card.model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class YugiohService {
    * @returns todas las cartas
    */
   getAllCards() {
-    return this.http.get(`${this.URL_API}/`);
+    return this.http.get<YugiohCard[]>(`${this.URL_API}/`);
   }
 
   /**
@@ -26,7 +27,7 @@ export class YugiohService {
    * @returns la carta que coincida con el ID o passcode
    */
   getCardById(id: string) {
-    return this.http.get(`${this.URL_API}/?id=${id}`);
+    return this.http.get<YugiohCard[]>(`${this.URL_API}/?id=${id}`);
   }
 
   /**
@@ -36,7 +37,7 @@ export class YugiohService {
    * @returns la carta que coincida con el nombre
    */
   getCardByName(name: string) {
-    return this.http.get(`${this.URL_API}/?name=${name}`);
+    return this.http.get<YugiohCard[]>(`${this.URL_API}/?name=${name}`);
   }
 
   /**
@@ -45,7 +46,7 @@ export class YugiohService {
    * @returns la carta que coincida con el fname
    */
   getCardByFName(fname: string) {
-    return this.http.get(`${this.URL_API}/?fname=${fname}`);
+    return this.http.get<YugiohCard[]>(`${this.URL_API}/?fname=${fname}`);
   }
 
   /**
@@ -55,7 +56,9 @@ export class YugiohService {
    * @returns la carta que coincida con el atributo
    */
   getCardByAttribute(attribute: string) {
-    return this.http.get(`${this.URL_API}/?attribute=${attribute}`);
+    return this.http.get<YugiohCard[]>(
+      `${this.URL_API}/?attribute=${attribute}`
+    );
   }
 
   /**
@@ -72,7 +75,7 @@ export class YugiohService {
     //   return type;
     // };
     // const typeCard = getSpecifficType();
-    return this.http.get(`${this.URL_API}/?type=${type}`);
+    return this.http.get<YugiohCard[]>(`${this.URL_API}/?type=${type}`);
   }
 
   /**
@@ -82,7 +85,7 @@ export class YugiohService {
    * @returns la carta que coincida con el tipo
    */
   getCardByFrameType(type: string) {
-    return this.http.get(`${this.URL_API}/?frametype=${type}`);
+    return this.http.get<YugiohCard[]>(`${this.URL_API}/?frametype=${type}`);
   }
 
   /**
@@ -93,7 +96,9 @@ export class YugiohService {
    * @returns la carta que coincida con el tipo y la raza
    */
   getCardByTypeByRace(type: string, race: string) {
-    return this.http.get(`${this.URL_API}/?type=${type}%20card&race=${race}`);
+    return this.http.get<YugiohCard[]>(
+      `${this.URL_API}/?type=${type}%20card&race=${race}`
+    );
   }
 
   /**
@@ -109,7 +114,7 @@ export class YugiohService {
     attribute: string,
     sort: string
   ) {
-    return this.http.get(
+    return this.http.get<YugiohCard[]>(
       `${this.URL_API}/?level=${level}&attribute=${attribute}&sort=${sort}`
     );
   }

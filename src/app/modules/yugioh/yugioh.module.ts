@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { YugiohRoutingModule } from './yugioh-routing.module';
 import { HomeComponent } from './pages/home/home.component';
-import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { FooterPageComponent } from './components/footer-page/footer-page.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { TypeCardComponent } from './pages/type-card/type-card.component';
@@ -11,19 +10,11 @@ import { DetailCardComponent } from './components/detail-card/detail-card.compon
 import { CardComponent } from './pages/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LayoutComponent } from './components/layout/layout.component';
-
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatListModule } from '@angular/material/list';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    HeaderPageComponent,
     FooterPageComponent,
     CarouselComponent,
     TypeCardComponent,
@@ -32,16 +23,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     NavbarComponent,
     LayoutComponent,
   ],
-  imports: [
-    CommonModule,
-    YugiohRoutingModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatIconModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    MatProgressSpinnerModule,
-  ],
+  imports: [CommonModule, YugiohRoutingModule, MaterialModule],
 })
 export class YugiohModule {}
