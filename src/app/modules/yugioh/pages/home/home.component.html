@@ -3,6 +3,9 @@
     <h2 class="intro-title">TCG Yu Gi Oh!</h2>
     <p class="intro-subtitle">A playing card game</p>
   </section>
+  <section class="searchbar-cards">
+    <app-searchbar [placeholder]="'Search a someone card...'"></app-searchbar>
+  </section>
   <section class="cards-carousel">
     <section class="container" *ngFor="let carousel of carouselData">
       <app-carousel

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs';
 import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
 import { YugiohCard } from '../../models/card.model';
@@ -59,27 +59,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllCards();
-    setTimeout(() => {
-      this.darkMagicianCards = this.getCardsByFilterName(
-        'Dark Magician',
-        this.allCards
-      );
-      this.normalMonsterCards = this.getCardsByTypeFiltered('normal', 12);
-      this.effectMonsterCards = this.getCardsByTypeFiltered('effect', 12);
-      this.spellCards = this.getCardsByTypeFiltered('spell', 12);
-      this.trapCards = this.getCardsByTypeFiltered('trap', 12);
-
-      const allTypeCards = [
-        this.darkMagicianCards,
-        this.normalMonsterCards,
-        this.effectMonsterCards,
-        this.spellCards,
-        this.trapCards,
-      ];
-      this.carouselData = this.carouselData.map((carousel, i) => {
-        return { ...carousel, cards: allTypeCards[i] };
-      });
-    }, 2500);
   }
 
   /**
@@ -103,6 +82,32 @@ export class HomeComponent implements OnInit {
   getAllCards(): void {
     this.yugiohService.getAllCards().subscribe((res: any) => {
       this.allCards = res.data;
+      const allTypeCards = this.getAllCardsFilteredByType();
+      this.setCardsInCarousel(allTypeCards);
+    });
+  }
+
+  getAllCardsFilteredByType() {
+    this.darkMagicianCards = this.getCardsByFilterName(
+      'Dark Magician',
+      this.allCards
+    );
+    this.normalMonsterCards = this.getCardsByTypeFiltered('normal', 12);
+    this.effectMonsterCards = this.getCardsByTypeFiltered('effect', 12);
+    this.spellCards = this.getCardsByTypeFiltered('spell', 12);
+    this.trapCards = this.getCardsByTypeFiltered('trap', 12);
+    return [
+      this.darkMagicianCards,
+      this.normalMonsterCards,
+      this.effectMonsterCards,
+      this.spellCards,
+      this.trapCards,
+    ];
+  }
+
+  setCardsInCarousel(cardList: YugiohCard[][]) {
+    this.carouselData = this.carouselData.map((carousel, i) => {
+      return { ...carousel, cards: cardList[i] };
     });
   }
 

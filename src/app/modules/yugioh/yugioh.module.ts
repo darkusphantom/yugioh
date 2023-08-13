@@ -11,6 +11,7 @@ import { CardComponent } from './pages/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { MaterialModule } from '../material/material.module';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MaterialModule } from '../material/material.module';
     CardComponent,
     NavbarComponent,
     LayoutComponent,
+    SearchbarComponent,
   ],
   imports: [CommonModule, YugiohRoutingModule, MaterialModule],
 })

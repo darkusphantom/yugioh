@@ -1,0 +1,17 @@
+<div class="searchbar">
+  <mat-icon aria-hidden="false" aria-label="search icon">search</mat-icon>
+  <input
+    type="text"
+    name="searchbar"
+    aria-label="searchbar for cards"
+    matInput
+    formControl="myControl"
+    [placeholder]="placeholder"
+    [matAutocomplete]="auto"
+  />
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of autocompleteOptions" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+</div>
