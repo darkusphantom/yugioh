@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MyValidators } from 'src/app/utils/utils';
 
 @Component({
@@ -9,18 +10,31 @@ import { MyValidators } from 'src/app/utils/utils';
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
+  hasError: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.buildForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   register() {
     if (this.form.valid) {
-      console.log(this.form.value);
+      const value = this.form.value;
+      const user = {
+        username: value.username,
+        email: value.email,
+        password: value.password,
+      };
+      localStorage.setItem('user', JSON.stringify(user));
+      setTimeout(() => {
+        this.router.navigate(['/auth/login']);
+      }, 500);
     } else {
       this.form.markAllAsTouched();
+      this.hasError = true;
     }
   }
 
@@ -30,7 +44,7 @@ export class RegisterComponent implements OnInit {
         username: ['', Validators.required],
         email: ['', Validators.required],
         password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', Validators.required],
+        confirmPassword: ['', [Validators.required, Validators.minLength(6)]],
       },
       {
         validators: MyValidators.matchPassword,

@@ -7,12 +7,12 @@ import { LayoutComponent } from './components/layout/layout.component';
 
 const routes: Routes = [
   {
-    path: 'yugioh',
+    path: 'home',
     component: LayoutComponent,
     children: [
       {
         path: '',
-        redirectTo: '/yugioh',
+        redirectTo: '/home',
         pathMatch: 'full',
       },
       {
@@ -35,4 +35,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class YugiohRoutingModule {}
+export class YugiohRoutingModule { }

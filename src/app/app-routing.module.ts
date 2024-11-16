@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './modules/auth/guards/auth.guard';
+import { PublicGuard } from './modules/auth/guards/public.guard';
 
 const routes: Routes = [
   {
@@ -14,23 +16,21 @@ const routes: Routes = [
       import('./modules/yugioh/yugioh.module').then((m) => m.YugiohModule),
   },
   {
-    path: 'pokemon',
-    loadChildren: () =>
-      import('./modules/pokemon/pokemon.module').then((m) => m.PokemonModule),
-  },
-  {
     path: 'auth',
-    loadChildren: () =>
-      import('./modules/auth/auth.module').then((m) => m.AuthModule),
+    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule),
+    canActivate: [PublicGuard]
   },
   {
-    path: '**',
-    component: NotFoundComponent,
+    path: 'home',
+    loadChildren: () => import('./modules/yugioh/yugioh.module').then((m) => m.YugiohModule),
+    canActivate: [AuthGuard]
   },
+  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
