@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
+import { CardSets, YugiohCard } from '../../models/card.model';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,54 @@ import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  allCards: any[] = [];
-  filteredCards: any[] = [];
+  allCards: YugiohCard[] = [];
+  allCardSets: CardSets[] = [];
+  filteredCards: YugiohCard[] = [];
+  randomCards: YugiohCard[] = [];
+  magicianCards: YugiohCard[] = [];
+  elementalHeroCards: YugiohCard[] = [];
 
-  constructor(private yugiohService: YugiohService) {}
+  constructor(private yugiohService: YugiohService) { }
 
   ngOnInit(): void {
-    this.getCardsByFname('magician');
+    this.yugiohService.getRandomCard(10, 0, 'random').subscribe({
+      next: (res: any) => {
+        this.randomCards = res.data;
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+    this.yugiohService
+      .getRandomCardByFname(10, 0, 'random', 'magician')
+      .subscribe({
+        next: (res: any) => {
+          this.magicianCards = res.data;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    this.yugiohService
+      .getRandomCardByFname(10, 0, 'random', 'elemental HERO')
+      .subscribe({
+        next: (res: any) => {
+          this.elementalHeroCards = res.data;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+
+    this.yugiohService.getALlCardSets().subscribe({
+      next: (res: any) => {
+        this.allCardSets = res.splice(0, 10).filter((card: any) => card?.set_image);
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    },
+    )
   }
 
   /**
@@ -24,10 +66,10 @@ export class HomeComponent implements OnInit {
    */
   getCardsByFilterName(words: string) {
     const filteredCards = this.allCards
-      .map((card) => {
-        if (card.name.includes(words)) return card;
+      .map((card: any) => {
+        if (card?.name.includes(words)) return card;
       })
-      .filter((card) => card !== undefined);
+      .filter((card: YugiohCard | undefined) => card !== undefined);
     return filteredCards;
   }
 
@@ -48,7 +90,7 @@ export class HomeComponent implements OnInit {
   getCardsByFname(fname: string) {
     this.yugiohService.getCardByFName(fname).subscribe((res: any) => {
       this.allCards = res.data;
-      this.filteredCards = this.getCardsByFilterName('Dark Magician');
+      this.filteredCards = this.getCardsByFilterName('Dark Magician').slice(0, 6);
     });
   }
 }

@@ -1,4 +1,4 @@
-<nav class="navbar" [class.active]="isShowMenu">
+<!-- <nav class="navbar" [class.active]="isShowMenu">
   <a class="item" routerLink="/yugioh" routerLinkActive="active">Home</a>
   <a class="item" routerLink="/yugioh/type-card/spell" routerLinkActive="active">TypeCard</a>
   <a class="item" routerLink="/yugioh/card/dark magician" routerLinkActive="active">Card</a>
@@ -11,7 +11,41 @@
   >
     X
   </button>
-</nav>
-<div class="menu-burger" (click)="toggleShowMenu()">
+</nav> -->
+<!-- <div class="menu-burger" (click)="toggleShowMenu()">
   <span></span><span></span><span></span>
-</div>
+</div> -->
+
+<nav aria-label="Global" class="hidden md:block">
+  <ul class="flex items-center gap-6 text-sm">
+    <li>
+      <a
+        class="text-gray-800 transition hover:text-gray-800/75"
+        routerLink="/yugioh"
+        routerLinkActive="active"
+      >
+        Home
+      </a>
+    </li>
+
+    <li>
+      <a
+        class="text-gray-800 transition hover:text-gray-800/75"
+        routerLink="/yugioh/type-card/spell"
+        routerLinkActive="active"
+      >
+        TypeCard
+      </a>
+    </li>
+
+    <li>
+      <a
+        class="text-gray-800 transition hover:text-gray-800/75"
+        routerLink="/yugioh/card/dark magician"
+        routerLinkActive="active"
+      >
+        Card
+      </a>
+    </li>
+  </ul>
+</nav>

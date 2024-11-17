@@ -1,8 +1,8 @@
-interface YugiohCardData {
+export interface YugiohCardData {
   data: YugiohCard[];
 }
 
-interface YugiohCard {
+export interface YugiohCard {
   id: Number;
   name: String;
   type: String;
@@ -19,14 +19,14 @@ interface YugiohCard {
   card_prices: CardPrices[];
 }
 
-interface CardImages {
+export interface CardImages {
   id: Number;
   image_url: String;
   image_url_small: String;
   image_url_cropped: String;
 }
 
-interface CardPrices {
+export interface CardPrices {
   amazon_price: String;
   cardmarket_price: String;
   coolstuffinc_price: String;
@@ -34,7 +34,7 @@ interface CardPrices {
   tcgplayer_price: String;
 }
 
-interface CardSets {
+export interface CardSets {
   set_code: String;
   set_name: String;
   set_price: String;
@@ -42,4 +42,10 @@ interface CardSets {
   set_rarity_code: String;
 }
 
-export { YugiohCardData, YugiohCard };
+export interface CardSets {
+  set_name: String;
+  set_code: String;
+  num_of_cards: Number;
+  tcg_date?: String;
+  set_image?: String;
+}

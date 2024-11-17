@@ -74,15 +74,17 @@
               formControlName="password"
             />
             <div
-              class="absolute right-2 top-8 w-6 bg-black h-6 rounded-full cursor-pointer"
+              class="absolute right-2 top-8 w-6 cursor-pointer"
               (click)="showPassword = !showPassword"
             >
-              <i
-                [ngClass]="{
-                  'fa-solid fa-eye': showPassword,
-                  'fa-solid fa-eye-slash': !showPassword
-                }"
-              ></i>
+              <img
+                [src]="
+                  showPassword
+                    ? '../../../../../assets/icons/eye-outline.svg'
+                    : '../../../../../assets/icons/eye-off-outline.svg'
+                "
+                alt="Eye Icon"
+              />
             </div>
           </div>
 

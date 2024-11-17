@@ -1,5 +1,10 @@
 <section class="carousel scrollbar-x">
-  <h2 class="carousel--title" *ngIf="title.length">{{ title }}</h2>
+  <h2
+    class="text-xl font-bold text-gray-900 sm:text-3xl"
+    *ngIf="title.length"
+  >
+    {{ title }}
+  </h2>
   <div class="carousel__container">
     <div class="carousel-item" *ngFor="let item of cards">
       <img
@@ -10,6 +15,7 @@
         height="250"
         loading="lazy"
         (click)="toggleShowItem(item)"
+        aria-label="Card Image"
       />
       <div class="carousel-item__details">
         <div>
@@ -20,6 +26,7 @@
             width="20"
             height="20"
             loading="lazy"
+            aria-label="Plus Icon"
           />
           <img
             class="carousel-item__details--img"
@@ -29,6 +36,7 @@
             height="20"
             loading="lazy"
             (click)="toggleShowItem(item)"
+            aria-label="More Icon"
           />
         </div>
         <!-- <p class="carousel-item__details--title">{{ item.desc }}</p> -->

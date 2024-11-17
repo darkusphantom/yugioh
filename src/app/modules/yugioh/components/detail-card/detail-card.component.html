@@ -1,12 +1,24 @@
-<div class="overlay" *ngIf="showCardDetail" (click)="toggleCardDetail()"></div>
-<div class="detail-card" [class.active]="showCardDetail">
+<div
+  class="overlay z-10"
+  *ngIf="showCardDetail"
+  aria-label="Close"
+  (click)="toggleCardDetail()"
+></div>
+<div class="detail-card z-10" [class.active]="showCardDetail">
   <div class="detail-card-container">
-    <button type="button" class="detail-btn" (click)="toggleCardDetail()">
+    <button
+      type="button"
+      class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+      aria-label="Close"
+      (click)="toggleCardDetail()"
+    >
       Close
     </button>
     <div class="detail-card-title">
-      <h3 class="detail-name">{{ cardDetail.name }}</h3>
-      <p class="detail-race">{{ cardDetail.race }}</p>
+      <h3 class="text-xl font-bold text-gray-900 sm:text-3xl">
+        {{ cardDetail.name }}
+      </h3>
+      <p class="text-gray-800 font-bold">{{ cardDetail.race }}</p>
     </div>
     <div class="detail-card-image">
       <img
@@ -14,16 +26,25 @@
         alt="cardDetail.name"
         width="250"
         height="370"
+        loading="lazy"
+        aria-label="Card Image"
       />
     </div>
     <div class="detail-card-description">
-      <p class="detail-description">
-        <span>Description:</span> {{ cardDetail.desc }}
+      <p class="text-gray-900">
+        <span class="font-bold">Description:</span> {{ cardDetail.desc }}
       </p>
-      <p class="detail-lvl"><span>Level:</span> {{ cardDetail.level }}</p>
-      <p class="detail-type"><span>Type:</span> {{ cardDetail.type }}</p>
-      <p class="detail-archetype">
-        <span>Archetype:</span> {{ cardDetail.archetype }}
+      <p class="text-gray-900" *ngIf="cardDetail.level">
+        <span class="font-bold">Level:</span>
+        {{ cardDetail.level }}
+      </p>
+      <p class="text-gray-900">
+        <span class="font-bold">Type:</span>
+        {{ cardDetail.type }}
+      </p>
+      <p class="text-gray-900" *ngIf="cardDetail.archetype">
+        <span class="font-bold">Archetype:</span>
+        {{ cardDetail.archetype }}
       </p>
     </div>
   </div>

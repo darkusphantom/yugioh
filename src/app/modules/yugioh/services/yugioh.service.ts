@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ export class YugiohService {
   // Documentación de la API: https://ygoprodeck.com/api-guide/
   private URL_API = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
    * Obtiene todas las cartas
@@ -104,5 +105,41 @@ export class YugiohService {
     return this.http.get(
       `${this.URL_API}/?level=${level}&attribute=${attribute}&sort=${sort}`
     );
+  }
+
+  getRandomCard(
+    num: number = 3,
+    offset: number = 0,
+    sort: string
+  ): Observable<any> {
+    return this.http.get(
+      `${this.URL_API}?num=${num}&offset=${offset}&sort=${sort}`
+    );
+  }
+
+  getRandomCardByType(
+    num: number = 3,
+    offset: number = 0,
+    sort: string,
+    type: string
+  ): Observable<any> {
+    return this.http.get(
+      `${this.URL_API}?num=${num}&offset=${offset}&sort=${sort}&type=${type}`
+    );
+  }
+
+  getRandomCardByFname(
+    num: number = 3,
+    offset: number = 0,
+    sort: string,
+    fname: string
+  ): Observable<any> {
+    return this.http.get(
+      `${this.URL_API}?num=${num}&offset=${offset}&sort=${sort}&fname=${fname}`
+    );
+  }
+
+  getALlCardSets() {
+    return this.http.get(`https://db.ygoprodeck.com/api/v7/cardsets.php`);
   }
 }
