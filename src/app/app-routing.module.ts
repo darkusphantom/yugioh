@@ -7,7 +7,7 @@ import { PublicGuard } from './modules/auth/guards/public.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/yugioh',
+    redirectTo: '/home',
     pathMatch: 'full',
   },
   {
