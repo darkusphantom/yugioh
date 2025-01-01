@@ -97,7 +97,7 @@
               [alt]="result.name"
               width="24"
             />
-            <p>{{ result.name }}</p>
+            <a [routerLink]="'/card/' + result.name">{{ result.name }}</a>
           </li>
         </ul>
       </div>

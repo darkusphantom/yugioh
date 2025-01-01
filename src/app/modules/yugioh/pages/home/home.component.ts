@@ -47,8 +47,8 @@ export class HomeComponent implements OnInit {
         },
       });
 
-    this.yugiohService.getALlCardSets().subscribe({
-      next: (res: any) => {
+    this.yugiohService.getAllCardSets().subscribe({
+      next: (res) => {
         this.allCardSets = res.splice(0, 10).filter((card: any) => card?.set_image);
       },
       error: (error) => {

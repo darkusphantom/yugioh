@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { PublicGuard } from './modules/auth/guards/public.guard';
+import { CardComponent } from './modules/yugioh/pages/card/card.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/yugioh/yugioh.module').then((m) => m.YugiohModule),
     canActivate: [AuthGuard]
   },
-  { path: '', redirectTo: 'auth/login', pathMatch: 'full' },
+  {
+    path: 'card/:name',
+    component: CardComponent
+  },
   { path: '**', component: NotFoundComponent }
 ];
 

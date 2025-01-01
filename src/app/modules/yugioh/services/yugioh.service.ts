@@ -34,8 +34,8 @@ export class YugiohService {
    * @param name Nombre de la carta
    * @returns la carta que coincida con el nombre
    */
-  getCardByName(name: string): Observable<any> {
-    return this.http.get(`${this.URL_API}/?name=${name}`);
+  getCardByName(name: string): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(`${this.URL_API}/?name=${name}`);
   }
 
   /**
@@ -52,8 +52,8 @@ export class YugiohService {
    * @param attribute atributo de la carta
    * @returns la carta que coincida con el atributo
    */
-  getCardByAttribute(attribute: string) {
-    return this.http.get(`${this.URL_API}/?attribute=${attribute}`);
+  getCardByAttribute(attribute: string): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(`${this.URL_API}/?attribute=${attribute}`);
   }
 
   /**
@@ -61,7 +61,7 @@ export class YugiohService {
    * @param type tipo de la carta (normal monster, effect monster, spell card, trap card...)
    * @returns la carta que coincida con el tipo
    */
-  getCardByType(type: string | null) {
+  getCardByType(type: string | null): Observable<YugiohCardData> {
     const getSpecifficType = () => {
       const isSpellOrTrap = type === 'spell' || type === 'trap';
       if (isSpellOrTrap) return `${type} card`;
@@ -69,7 +69,7 @@ export class YugiohService {
       return type;
     };
     const typeCard = getSpecifficType();
-    return this.http.get(`${this.URL_API}/?type=${typeCard}`);
+    return this.http.get<YugiohCardData>(`${this.URL_API}/?type=${typeCard}`);
   }
 
   /**
@@ -77,8 +77,8 @@ export class YugiohService {
    * @param type tipo de la carta (normal, effect, spell, trap...)
    * @returns la carta que coincida con el tipo
    */
-  getCardByFrameType(type: string) {
-    return this.http.get(`${this.URL_API}/?frametype=${type}`);
+  getCardByFrameType(type: string): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(`${this.URL_API}/?frametype=${type}`);
   }
 
   /**
@@ -87,8 +87,8 @@ export class YugiohService {
    * @param race raza de la carta (spellcaster, warrior, insect...)
    * @returns la carta que coincida con el tipo y la raza
    */
-  getCardByTypeByRace(type: string, race: string) {
-    return this.http.get(`${this.URL_API}/?type=${type}%20card&race=${race}`);
+  getCardByTypeByRace(type: string, race: string): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(`${this.URL_API}/?type=${type}%20card&race=${race}`);
   }
 
   /**
@@ -102,8 +102,8 @@ export class YugiohService {
     level: string,
     attribute: string,
     sort: string
-  ) {
-    return this.http.get(
+  ): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(
       `${this.URL_API}/?level=${level}&attribute=${attribute}&sort=${sort}`
     );
   }
@@ -112,8 +112,8 @@ export class YugiohService {
     num: number = 3,
     offset: number = 0,
     sort: string
-  ): Observable<any> {
-    return this.http.get(
+  ): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(
       `${this.URL_API}?num=${num}&offset=${offset}&sort=${sort}`
     );
   }
@@ -123,8 +123,8 @@ export class YugiohService {
     offset: number = 0,
     sort: string,
     type: string
-  ): Observable<any> {
-    return this.http.get(
+  ): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(
       `${this.URL_API}?num=${num}&offset=${offset}&sort=${sort}&type=${type}`
     );
   }
@@ -134,13 +134,13 @@ export class YugiohService {
     offset: number = 0,
     sort: string,
     fname: string
-  ): Observable<any> {
-    return this.http.get(
+  ): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(
       `${this.URL_API}?num=${num}&offset=${offset}&sort=${sort}&fname=${fname}`
     );
   }
 
-  getALlCardSets() {
-    return this.http.get(`https://db.ygoprodeck.com/api/v7/cardsets.php`);
+  getAllCardSets(): Observable<any[]> {
+    return this.http.get<any[]>(`https://db.ygoprodeck.com/api/v7/cardsets.php`);
   }
 }
