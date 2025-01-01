@@ -1,5 +1,5 @@
 <div
-  class="overlay z-10"
+  class="overlay z-10 hidden md:block"
   *ngIf="showCardDetail"
   aria-label="Close"
   (click)="toggleCardDetail()"
@@ -8,7 +8,7 @@
   <div class="detail-card-container">
     <button
       type="button"
-      class="rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+      class="self-end rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow"
       aria-label="Close"
       (click)="toggleCardDetail()"
     >

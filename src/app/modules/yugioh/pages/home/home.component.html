@@ -1,6 +1,16 @@
 <div class="home">
-  <section>
-    <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+  <section class="">
+    <div
+      class="max-w-screen-xl mx-auto py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 relative"
+    >
+      <!-- <div
+        class="z-10"
+        style="
+          background-image: url('https://wallpapers.com/images/hd/yugioh-3840-x-2160-background-dg16zlgnb49xvg6h.jpg');
+          background-position: center;
+          filter: brightness(0.8);
+        "
+      ></div> -->
       <div
         class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16"
       >
@@ -20,9 +30,9 @@
           </a>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+        <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-6 md:px-0">
           <a
-            class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            class="block rounded-xl border bg-white border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
             routerLink="/home"
             aria-label="Monster Cards"
           >
@@ -55,7 +65,7 @@
           </a>
 
           <a
-            class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            class="block rounded-xl border bg-white border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
             routerLink="/home"
           >
             <span class="inline-block rounded-lg bg-gray-50 p-3">
@@ -87,7 +97,7 @@
           </a>
 
           <a
-            class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            class="block rounded-xl border bg-white border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
             routerLink="/home"
           >
             <span class="inline-block rounded-lg bg-gray-50 p-3">
@@ -119,7 +129,7 @@
           </a>
 
           <a
-            class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            class="block rounded-xl border bg-white border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
             routerLink="/home"
           >
             <span class="inline-block rounded-lg bg-gray-50 p-3">
@@ -151,7 +161,7 @@
           </a>
 
           <a
-            class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            class="block rounded-xl border bg-white border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
             routerLink="/home"
           >
             <span class="inline-block rounded-lg bg-gray-50 p-3">
@@ -177,13 +187,13 @@
 
             <h2 class="mt-2 font-bold">Fusion Cards</h2>
 
-            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
+            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
               Lorem ipsum dolor sit amet consectetur.
             </p>
           </a>
 
           <a
-            class="block rounded-xl border border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+            class="block rounded-xl border bg-white border-gray-100 p-4 shadow-sm hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
             routerLink="/home"
           >
             <span class="inline-block rounded-lg bg-gray-50 p-3">
@@ -209,7 +219,7 @@
 
             <h2 class="mt-2 font-bold">Ritual Cards</h2>
 
-            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
+            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
               Lorem ipsum dolor sit amet consectetur.
             </p>
           </a>
@@ -218,15 +228,19 @@
     </div>
   </section>
 
-  <app-carousel
-    [title]="'Magician Cards'"
-    [cards]="magicianCards"
-  ></app-carousel>
+  <section class="py-8">
+    <app-carousel
+      [title]="'Magician Cards'"
+      [cards]="magicianCards"
+    ></app-carousel>
+  </section>
 
-  <app-carousel
-    [title]="'Elemental HERO Cards'"
-    [cards]="elementalHeroCards"
-  ></app-carousel>
+  <section class="py-8">
+    <app-carousel
+      [title]="'Elemental HERO Cards'"
+      [cards]="elementalHeroCards"
+    ></app-carousel>
+  </section>
 
   <section>
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
@@ -259,7 +273,7 @@
               </h3>
 
               <span
-                class="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                class="mt-1.5 inline-block bg-indigo-600 hover:bg-indigo-600 transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400 px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
               >
                 See More
               </span>
@@ -281,7 +295,7 @@
     </h2>
     <div class="flex flex-wrap gap-4 justify-center items-center">
       <div class="max-w-md" *ngFor="let card of filteredCards">
-        <a routerLink="/home" class="group relative block bg-black max-w-52">
+        <a routerLink="/home" class="group relative block  bg-indigo-600  hover: bg-indigo-600 bg-black max-w-52">
           <img
             [alt]="card.name"
             [src]="card.card_images[0].image_url"

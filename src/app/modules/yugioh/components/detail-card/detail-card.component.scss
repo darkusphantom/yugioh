@@ -12,6 +12,9 @@
   transform: translateX(100%);
   &.active {
     transform: translateX(0);
+    // @media screen and (min-width: 768px) {
+    //   transform: translateX(0);
+    // }
   }
   &-container {
     display: flex;

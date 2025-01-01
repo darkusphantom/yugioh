@@ -32,7 +32,6 @@ export class LoginComponent {
           user.password === userStorageObj.password
         ) {
           setTimeout(() => {
-            this.router.navigate(['/yugioh']);
             // this.authService.setToken('tu-token-jwt');
             this.router.navigate(['/home']);
           }, 500);
