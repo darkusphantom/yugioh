@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { YugiohRoutingModule } from './yugioh-routing.module';
 import { HomeComponent } from './pages/home/home.component';
@@ -12,6 +13,7 @@ import { CardComponent } from './pages/card/card.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { SearchbarComponent } from './components/searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,13 @@ import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/lega
     CardComponent,
     NavbarComponent,
     LayoutComponent,
+    SearchbarComponent,
   ],
-  imports: [CommonModule, YugiohRoutingModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    YugiohRoutingModule,
+    MatButtonModule,
+  ],
 })
 export class YugiohModule {}

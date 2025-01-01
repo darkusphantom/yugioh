@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { YugiohCardData } from '../models/card.model';
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +34,7 @@ export class YugiohService {
    * @param name Nombre de la carta
    * @returns la carta que coincida con el nombre
    */
-  getCardByName(name: string) {
+  getCardByName(name: string): Observable<any> {
     return this.http.get(`${this.URL_API}/?name=${name}`);
   }
 
@@ -42,8 +43,8 @@ export class YugiohService {
    * @param fname Nombre que contiene la carta (Magician)
    * @returns la carta que coincida con el fname
    */
-  getCardByFName(fname: string) {
-    return this.http.get(`${this.URL_API}/?fname=${fname}`);
+  getCardByFName(fname: string): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(`${this.URL_API}/?fname=${fname}`);
   }
 
   /**
