@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { YugiohCardData } from '../../../shared/models/card.model';
+import { CardSets, YugiohCardData } from '../../../shared/models/card.model';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root',
@@ -108,6 +108,13 @@ export class YugiohService {
     );
   }
 
+  /**
+ * Obtiene cartas aleatorias. Minimo 3
+ * @param {number} num numero de cartas
+ * @param {number} inicio del conteo de cartas
+ * @param {string} sort el tipo de ordenamiento
+ * @returns la carta que coincida con el tipo y la raza
+ */
   getRandomCard(
     num: number = 3,
     offset: number = 0,
@@ -140,7 +147,12 @@ export class YugiohService {
     );
   }
 
-  getAllCardSets(): Observable<any[]> {
-    return this.http.get<any[]>(`https://db.ygoprodeck.com/api/v7/cardsets.php`);
+  /**
+   * Filter the cards by card set (Metal Raiders, Soul Fusion, etc).
+   *
+   * @returns cards by card set
+   */
+  getAllCardSets(): Observable<CardSets[]> {
+    return this.http.get<CardSets[]>(`https://db.ygoprodeck.com/api/v7/cardsets.php`);
   }
 }

@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AllCardsComponent } from './pages/all-cards/all-cards.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
     NavbarComponent,
     LayoutComponent,
     SearchbarComponent,
+    AllCardsComponent,
   ],
   imports: [
     RouterModule.forChild(routes),

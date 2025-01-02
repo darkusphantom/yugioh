@@ -37,15 +37,10 @@ export interface CardPrices {
 export interface CardSets {
   set_code: String;
   set_name: String;
-  set_price: String;
-  set_rarity: String;
-  set_rarity_code: String;
-}
-
-export interface CardSets {
-  set_name: String;
-  set_code: String;
-  num_of_cards: Number;
+  set_price?: String;
+  set_rarity?: String;
+  set_rarity_code?: String;
+  num_of_cards?: Number;
   tcg_date?: String;
   set_image?: String;
 }

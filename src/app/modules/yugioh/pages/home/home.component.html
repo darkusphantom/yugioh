@@ -3,14 +3,6 @@
     <div
       class="max-w-screen-xl mx-auto py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16 relative"
     >
-      <!-- <div
-        class="z-10"
-        style="
-          background-image: url('https://wallpapers.com/images/hd/yugioh-3840-x-2160-background-dg16zlgnb49xvg6h.jpg');
-          background-position: center;
-          filter: brightness(0.8);
-        "
-      ></div> -->
       <div
         class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16"
       >
@@ -19,7 +11,7 @@
         >
           <h2 class="text-3xl font-bold sm:text-4xl">Yugioh</h2>
 
-          <p class="mt-4 text-gray-800">Welcome to duel of monster!</p>
+          <p class="mt-2 lg:mt-4 text-gray-800">Welcome to duel of monster!</p>
 
           <a
             routerLink="/all-cards"
@@ -59,9 +51,9 @@
 
             <h2 class="mt-2 font-bold">Monster Cards</h2>
 
-            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
+            <!-- <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
               Lorem ipsum dolor sit amet consectetur.
-            </p>
+            </p> -->
           </a>
 
           <a
@@ -91,9 +83,9 @@
 
             <h2 class="mt-2 font-bold">Synchro Cards</h2>
 
-            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
+            <!-- <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
               Lorem ipsum dolor sit amet consectetur.
-            </p>
+            </p> -->
           </a>
 
           <a
@@ -123,9 +115,9 @@
 
             <h2 class="mt-2 font-bold">Trap Cards</h2>
 
-            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
+            <!-- <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
               Lorem ipsum dolor sit amet consectetur.
-            </p>
+            </p> -->
           </a>
 
           <a
@@ -155,9 +147,9 @@
 
             <h2 class="mt-2 font-bold">Spell Cards</h2>
 
-            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
+            <!-- <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-800">
               Lorem ipsum dolor sit amet consectetur.
-            </p>
+            </p> -->
           </a>
 
           <a
@@ -187,9 +179,9 @@
 
             <h2 class="mt-2 font-bold">Fusion Cards</h2>
 
-            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+            <!-- <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
               Lorem ipsum dolor sit amet consectetur.
-            </p>
+            </p> -->
           </a>
 
           <a
@@ -219,9 +211,9 @@
 
             <h2 class="mt-2 font-bold">Ritual Cards</h2>
 
-            <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
+            <!-- <p class="hidden sm:mt-1 sm:block sm:text-sm sm:text-gray-600">
               Lorem ipsum dolor sit amet consectetur.
-            </p>
+            </p> -->
           </a>
         </div>
       </div>
@@ -242,7 +234,8 @@
     ></app-carousel>
   </section>
 
-  <section>
+  <!--Card Sets-->
+  <!-- <section>
     <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
       <header class="text-center">
         <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">
@@ -255,7 +248,7 @@
         </p>
       </header>
 
-      <ul class="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
+      <ul class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <li *ngFor="let cardSet of allCardSets">
           <a routerLink="/home" class="group relative block max-w-xs">
             <img
@@ -273,7 +266,7 @@
               </h3>
 
               <span
-                class="mt-1.5 inline-block bg-indigo-600 hover:bg-indigo-600 transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400 px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                class="mt-1.5 inline-block bg-indigo-600 hover:bg-indigo-600 transition focus:outline-none focus:ring focus:ring-yellow-400 px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
               >
                 See More
               </span>
@@ -282,42 +275,11 @@
         </li>
       </ul>
     </div>
-  </section>
+  </section> -->
 
   <app-carousel
     [title]="'Check your card!'"
     [cards]="randomCards"
   ></app-carousel>
 
-  <!-- <section class="flex flex-col gap-4 mx-auto py-8">
-    <h2 class="text-3xl font-bold sm:text-4xl text-center text-white mb-4">
-      Popular Cards
-    </h2>
-    <div class="flex flex-wrap gap-4 justify-center items-center">
-      <div class="max-w-md" *ngFor="let card of filteredCards">
-        <a routerLink="/home" class="group relative block  bg-indigo-600  hover: bg-indigo-600 bg-black max-w-52">
-          <img
-            [alt]="card.name"
-            [src]="card.card_images[0].image_url"
-            class="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-            width="200"
-            height="200"
-            loading="lazy"
-          />
-
-          <div class="relative p-4 sm:p-6 lg:p-8">
-            <div class="mt-32 sm:mt-48 lg:mt-64">
-              <div
-                class="translate-y-8 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100"
-              >
-                <p class="text-sm text-white">
-                  {{ card.desc.slice(0, 50) }}...
-                </p>
-              </div>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section> -->
 </div>

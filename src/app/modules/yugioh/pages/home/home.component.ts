@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { YugiohService } from 'src/app/modules/yugioh/services/yugioh.service';
-import { CardSets, YugiohCard } from '../../../../shared/models/card.model';
+import { CardSets, YugiohCard } from 'src/app/shared/models/card.model';
 
 @Component({
   selector: 'app-home',
