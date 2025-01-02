@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { YugiohCardData } from '../models/card.model';
+import { YugiohCardData } from '../../../shared/models/card.model';
 
 @Injectable({
   providedIn: 'root',

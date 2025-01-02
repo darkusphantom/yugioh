@@ -1,47 +1,18 @@
-<!-- <nav class="navbar" [class.active]="isShowMenu">
-  <a class="item" routerLink="/yugioh" routerLinkActive="active">Home</a>
-  <a class="item" routerLink="/yugioh/type-card/spell" routerLinkActive="active">TypeCard</a>
-  <a class="item" routerLink="/yugioh/card/dark magician" routerLinkActive="active">Card</a>
-  <a class="item" routerLink="/pokemon" routerLinkActive="active">Pokemon</a>
-  <button
-    type="button"
-    class="btn-close"
-    *ngIf="isShowMenu"
-    (click)="toggleShowMenu()"
-  >
-    X
-  </button>
-</nav> -->
-<!-- <div class="menu-burger" (click)="toggleShowMenu()">
-  <span></span><span></span><span></span>
-</div> -->
-
 <nav aria-label="Global" class="hidden md:block">
   <ul class="flex items-center gap-6 text-sm">
     <li>
       <a
         class="text-gray-800 transition hover:text-gray-800/75"
-        routerLink="/yugioh"
+        routerLink="/home"
         routerLinkActive="active"
       >
         Home
       </a>
     </li>
-
     <li>
       <a
         class="text-gray-800 transition hover:text-gray-800/75"
-        routerLink="/yugioh/type-card/spell"
-        routerLinkActive="active"
-      >
-        Categories
-      </a>
-    </li>
-
-    <li>
-      <a
-        class="text-gray-800 transition hover:text-gray-800/75"
-        routerLink="/yugioh/card/dark magician"
+        routerLink="/all-cards"
         routerLinkActive="active"
       >
         All Cards

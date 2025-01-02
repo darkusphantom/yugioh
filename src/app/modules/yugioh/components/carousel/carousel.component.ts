@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { YugiohCard } from 'src/app/modules/yugioh/models/card.model';
+import { YugiohCard } from 'src/app/shared/models/card.model';
 
 @Component({
   selector: 'app-carousel',

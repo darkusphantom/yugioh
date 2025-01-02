@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './modules/not-found/not-found.component';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { PublicGuard } from './modules/auth/guards/public.guard';
 import { CardComponent } from './modules/yugioh/pages/card/card.component';

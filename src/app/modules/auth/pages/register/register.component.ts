@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MyValidators } from 'src/app/utils/utils';
+import { MyValidators } from 'src/app/shared/utils/utils';
 
 @Component({
   selector: 'form-register',
