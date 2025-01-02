@@ -5,31 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { CardComponent } from './components/card/card.component';
-import { HeaderPageComponent } from './components/header-page/header-page.component';
-import { FooterPageComponent } from './components/footer-page/footer-page.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
-import { TypeCardComponent } from './pages/type-card/type-card.component';
-import { DetailCardComponent } from './components/detail-card/detail-card.component';
+import { NotFoundComponent } from './modules/not-found/not-found.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NotFoundComponent,
-    LoginComponent,
-    RegisterComponent,
-    CardComponent,
-    HeaderPageComponent,
-    FooterPageComponent,
-    CarouselComponent,
-    TypeCardComponent,
-    DetailCardComponent,
-  ],
+  declarations: [AppComponent, NotFoundComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

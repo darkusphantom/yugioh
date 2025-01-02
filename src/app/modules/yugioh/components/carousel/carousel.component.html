@@ -1,0 +1,52 @@
+<section class="carousel scrollbar-x">
+  <h2
+    class="text-xl font-bold text-gray-900 sm:text-3xl"
+    *ngIf="title.length"
+  >
+    {{ title }}
+  </h2>
+  <div class="carousel__container">
+    <div class="carousel-item" *ngFor="let item of cards">
+      <img
+        class="carousel-item__img"
+        [src]="item.card_images[0].image_url"
+        [alt]="item.name"
+        width="170"
+        height="250"
+        loading="lazy"
+        (click)="toggleShowItem(item)"
+        aria-label="Card Image"
+      />
+      <div class="carousel-item__details">
+        <div>
+          <!-- <img
+            class="carousel-item__details--img"
+            src="./assets/icons/plus-purple.svg"
+            alt="Plus Icon"
+            width="20"
+            height="20"
+            loading="lazy"
+            aria-label="Plus Icon"
+          /> -->
+          <img
+            class="carousel-item__details--img"
+            src="./assets/icons/more-purple-64.png"
+            alt="More Icon"
+            width="20"
+            height="20"
+            loading="lazy"
+            (click)="toggleShowItem(item)"
+            aria-label="More Icon"
+          />
+        </div>
+        <!-- <p class="carousel-item__details--title">{{ item.desc }}</p> -->
+        <p class="carousel-item__details--subtitle">{{ item.archetype }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+<detail-card
+  [cardDetail]="itemSelected"
+  [showCardDetail]="showItem"
+  (showCard)="showItemState($event)"
+></detail-card>

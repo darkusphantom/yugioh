@@ -1,0 +1,113 @@
+<div class="relative">
+  <label for="Search" class="sr-only">Search</label>
+
+  <input
+    type="text"
+    id="Search"
+    placeholder="Search for..."
+    class="w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm"
+    autofocus="false"
+    autocomplete="off"
+    (click)="openOverlay()"
+  />
+
+  <span class="absolute inset-y-0 end-0 grid w-10 place-content-center">
+    <button type="button" class="text-gray-600 hover:text-gray-700">
+      <span class="sr-only">Search</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="size-4"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+        />
+      </svg>
+    </button>
+  </span>
+
+  <!-- Overlay -->
+  <div
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+    *ngIf="isOverlayOpen"
+  >
+    <div class="bg-white rounded-lg shadow-lg p-6 w-96 max-w-[90vw]">
+      <h2 class="text-lg font-semibold mb-4">Buscar Cartas</h2>
+      <input
+        type="text"
+        placeholder="Buscar por nombre..."
+        class="w-full rounded-md border-gray-200 py-2.5 mb-4 shadow-sm sm:text-sm"
+        [formControl]="searchbar"
+      />
+
+      <!-- <div class="mb-4">
+        <h3 class="font-medium">Filtros</h3>
+        <div class="flex gap-4 flex-col lg:flex-row">
+          <div class="flex items-center mb-2">
+            <input
+              type="radio"
+              id="nameFilter"
+              name="filter"
+              class="mr-2"
+              checked
+            />
+            <label for="nameFilter">Nombre</label>
+          </div>
+          <div class="flex items-center mb-2">
+            <input type="radio" id="typeFilter" name="filter" class="mr-2" />
+            <label for="typeFilter">Tipo</label>
+          </div>
+          <div class="flex items-center mb-2">
+            <input
+              type="radio"
+              id="attributeFilter"
+              name="filter"
+              class="mr-2"
+            />
+            <label for="attributeFilter">Atributo</label>
+          </div>
+          <div class="flex items-center mb-2">
+            <input
+              type="radio"
+              id="archetypeFilter"
+              name="filter"
+              class="mr-2"
+            />
+            <label for="archetypeFilter">Arquetipo</label>
+          </div>
+        </div>
+      </div> -->
+
+      <div *ngIf="results.length">
+        <h3 class="font-medium">Resultados</h3>
+        <ul class="max-h-40 overflow-y-auto">
+          <li
+            *ngFor="let result of results"
+            class="flex items-center gap-2 py-2 border-b"
+          >
+            <img
+              *ngIf="result.card_images.length"
+              class="rounded"
+              [src]="result.card_images[0].image_url_small"
+              [alt]="result.name"
+              width="24"
+            />
+            <a [routerLink]="'/card/' + result.name">{{ result.name }}</a>
+          </li>
+        </ul>
+      </div>
+
+      <button
+        (click)="closeOverlay()"
+        class="mt-4 bg-blue-500 text-white rounded-md py-2 px-4"
+      >
+        Cerrar
+      </button>
+    </div>
+  </div>
+</div>

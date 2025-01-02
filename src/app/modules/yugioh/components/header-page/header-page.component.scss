@@ -1,0 +1,14 @@
+.header-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+  padding: var(--header-padding-y) 20px;
+  background: rgba(198, 139, 89, 1) 100%;
+}
+
+.title-page {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}

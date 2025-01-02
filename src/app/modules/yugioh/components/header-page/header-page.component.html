@@ -1,0 +1,32 @@
+<header
+  class="flex flex-col md:grid grid-cols-12 items-center h-max min-h-20 p-4"
+  style="background: rgba(198, 139, 89, 1) 100%"
+>
+  <h2 class="col-span-2 text-2xl font-bold uppercase">Yu Gi Oh!</h2>
+
+  <div class="col-span-4 col-start-4 md:col-start-3 relative">
+    <app-searchbar></app-searchbar>
+  </div>
+
+  <div class="flex items-center col-span-5 col-start-12 lg:col-start-10">
+    <div class="hidden lg:block">
+      <app-navbar></app-navbar>
+    </div>
+    <div class="ml-6 flex items-center gap-4">
+      <div class="sm:flex sm:gap-4">
+        <a
+          class="hidden md:block rounded-md bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400 cursor-pointer"
+          (click)="logout()"
+          aria-label="Logout"
+        >
+          <img
+            src="../../../../../assets/icons/log-out-outline.svg"
+            alt="Logout"
+            width="20"
+            height="20"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
