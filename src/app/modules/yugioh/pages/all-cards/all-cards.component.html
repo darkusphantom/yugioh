@@ -1,1 +1,53 @@
-<p>all-cards works!</p>
+<main>
+  <header
+    class="flex flex-col md:grid grid-cols-12 items-center h-max min-h-20 p-4"
+    style="background: rgba(198, 139, 89, 1) 100%"
+  >
+    <h2 class="col-span-2 text-2xl font-bold uppercase">Yu Gi Oh!</h2>
+
+    <div class="col-span-4 col-start-4 md:col-start-3 relative">
+      <app-searchbar></app-searchbar>
+    </div>
+  </header>
+
+  <section class="home">
+    <div class="flex flex-col items-center mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+      <h3 class="text-xl text-center font-bold text-gray-900 sm:text-3xl">
+        Check All Cards
+      </h3>
+      <ul
+        class="mt-8 flex flex-shrink flex-wrap justify-center items-center gap-4"
+      >
+        <li *ngFor="let card of allCards">
+          <div class="group relative block max-w-xs">
+            <img
+              [src]="card.card_images[0].image_url"
+              [alt]="card.name"
+              class="w-full object-cover transition duration-500 group-hover:opacity-90 rounded"
+              loading="lazy"
+              width="170"
+              height="250"
+            />
+            <div
+              class="absolute inset-0 flex flex-col items-start justify-end p-6"
+            >
+              <a
+                class="mt-1.5 inline-block bg-indigo-600 hover:bg-indigo-600 transition focus:outline-none focus:ring focus:ring-yellow-400 px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+                [routerLink]="'/card/' + card.name"
+              >
+                See More
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <button
+        type="button"
+        class="mt-8 inline-block bg-indigo-600 hover:bg-indigo-600 transition focus:outline-none focus:ring focus:ring-yellow-400 px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+        (click)="getMoreCards()"
+      >
+        More
+      </button>
+    </div>
+  </section>
+</main>

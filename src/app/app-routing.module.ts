@@ -4,6 +4,7 @@ import { NotFoundComponent } from './modules/not-found/not-found.component';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { PublicGuard } from './modules/auth/guards/public.guard';
 import { CardComponent } from './modules/yugioh/pages/card/card.component';
+import { AllCardsComponent } from './modules/yugioh/pages/all-cards/all-cards.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,14 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./modules/yugioh/yugioh.module').then((m) => m.YugiohModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'all-cards',
+    component: AllCardsComponent
+  },
+  {
+    path: 'cards',
+    component: AllCardsComponent
   },
   {
     path: 'card/:name',

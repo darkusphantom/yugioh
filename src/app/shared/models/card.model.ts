@@ -1,5 +1,6 @@
 export interface YugiohCardData {
   data: YugiohCard[];
+  meta?: MetaData
 }
 
 export interface YugiohCard {
@@ -43,4 +44,15 @@ export interface CardSets {
   num_of_cards?: Number;
   tcg_date?: String;
   set_image?: String;
+}
+
+interface MetaData {
+  current_rows: number
+  generated: string
+  next_page: string
+  next_page_offset: number
+  pages_remaining: number
+  rows_remaining: number
+  total_pages: number
+  total_rows: number
 }

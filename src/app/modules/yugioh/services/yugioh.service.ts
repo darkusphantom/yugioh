@@ -16,8 +16,8 @@ export class YugiohService {
    * Obtiene todas las cartas
    * @returns todas las cartas
    */
-  getAllCards() {
-    return this.http.get(`${this.URL_API}/`);
+  getAllCards(): Observable<YugiohCardData> {
+    return this.http.get<YugiohCardData>(`${this.URL_API}/`);
   }
 
   /**

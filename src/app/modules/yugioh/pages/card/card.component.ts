@@ -30,21 +30,20 @@ export class CardComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private yugioCard: YugiohService
+    private yugiohCard: YugiohService
   ) {}
 
   ngOnInit(): void {
     this.route.paramMap
       .pipe(
         switchMap((params) => {
-          console.log(params)
           this.cardId = params.get('name');
           if (this.cardId) {
-            return this.yugioCard.getCardByName(this.cardId);
+            return this.yugiohCard.getCardByName(this.cardId);
           }
           return [];
         })
       )
-      .subscribe((res: any) => (this.card = res.data[0]));
+      .subscribe((res) => (this.card = res.data[0]));
   }
 }

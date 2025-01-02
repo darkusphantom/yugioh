@@ -2,7 +2,14 @@
   <div class="detail-card-container">
     <div class="detail-card-title">
       <h3 class="detail-name uppercase font-bold text-xl">{{ card.name }}</h3>
-      <p class="detail-race">{{ card.race }}</p>
+      <p class="detail-race">
+        <span
+          class="uppercase font-bold"
+          *ngIf="card.frameType === 'spell' || card.frameType === 'trap'"
+          >{{ card.frameType }}:
+        </span>
+        {{ card.race }}
+      </p>
     </div>
     <div class="detail-card-image">
       <div class="image-notfound" *ngIf="!card.card_images.length">
@@ -20,14 +27,20 @@
       <p class="detail-description">
         <span>Description:</span> {{ card.desc }}
       </p>
-      <p class="detail-atk"><span>Atk:</span> {{ card.atk }}</p>
-      <p class="detail-def"><span>Def:</span> {{ card.def }}</p>
-      <p class="detail-lvl"><span>Level:</span> {{ card.level }}</p>
+      <p class="detail-atk" *ngIf="card.atk">
+        <span>Atk:</span> {{ card.atk }}
+      </p>
+      <p class="detail-def" *ngIf="card.def">
+        <span>Def:</span> {{ card.def }}
+      </p>
+      <p class="detail-lvl" *ngIf="card.level">
+        <span>Level:</span> {{ card.level }}
+      </p>
       <p class="detail-type"><span>Type:</span> {{ card.type }}</p>
-      <p class="detail-attribute">
+      <p class="detail-attribute" *ngIf="card.attribute">
         <span>Attribute:</span> {{ card.attribute }}
       </p>
-      <p class="detail-archetype">
+      <p class="detail-archetype" *ngIf="card.archetype">
         <span>Archetype:</span> {{ card.archetype }}
       </p>
     </div>
