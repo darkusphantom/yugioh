@@ -1,6 +1,15 @@
 # Yugioh
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+Este proyecto es una sitio web relacionada con el juego de cartas Yu-Gi-Oh, donde los usuarios buscar las cartas del juego y ver información acerca de ellas.
+
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 14.2.6. La versión actual es 16.2.
+
+## Dependencias
+
+- Angular: 16.2
+- RxJS: 7.5.0
+- TypeScript: 4.9.0
+- Tailwind
 
 ## Development server
 
